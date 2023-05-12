@@ -1,0 +1,137 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    height: 100vh;
+}
+
+.progress-container {
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 2.4rem;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.6rem;
+}
+
+.progress {
+    display: flex;
+    gap: 4.2rem;
+    overflow: hidden;
+    ;
+}
+
+.progress p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: lightseagreen;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border: 1.4px solid lightseagreen;
+    background-color: white;
+    position: relative;
+    transition: all 0.3s .01s linear;
+    -webkit-transition: all 0.3s .01s linear;
+    -moz-transition: all 0.3s .01s linear;
+    -ms-transition: all 0.3s .01s linear;
+    -o-transition: all 0.3s .01s linear;
+}
+
+p::before {
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 5px;
+    background-color: lightgray;
+    right: 33px;
+    z-index: -1;
+    transition: all 0.3s linear;
+    -webkit-transition: all 0.3s linear;
+    -moz-transition: all 0.3s linear;
+    -ms-transition: all 0.3s linear;
+    -o-transition: all 0.3s linear;
+}
+
+p:first-child::before {
+    background-color: transparent !important;
+}
+
+.progress-btns {
+    display: flex;
+    gap: 1.4rem;
+}
+
+.progress-btns a {
+    text-decoration: none;
+    padding: 0.4rem 1.4rem;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    color: white;
+    cursor: pointer;
+}
+
+.progress-btns a {
+    background-color: lightseagreen;
+}
+
+.progress-btns a.disable-btn {
+    background-color: lightgray;
+}
+
+p.active {
+    background-color: lightseagreen;
+    color: white;
+}
+
+p:not(:first-child).active::before {
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 5px;
+    right: 33px;
+    background-color: lightseagreen;
+}
+
+.progress-btns a.disable-btn {
+    background-color: lightgray;
+    pointer-events: none;
+}
+
+@media (max-width:22em) {
+    .progress {
+        gap: 3rem;
+    }
+
+    p {
+        width: 25px;
+        height: 25px;
+    }
+}
+
+@media (max-width:19em) {
+    .progress {
+        gap: 2.4rem;
+    }
+
+    p:before,
+    p.active::before {
+        width: 50px;
+    }
+}
